@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 let url    = 'http://api.openweathermap.org/data/2.5/weather?q='
-let appId  = 'appid=YOUR API KEY';
+let appId  = 'appid=e9c5bf834390e3e42fdafb6b30b53ab5';
 let units  = '&units=metric'; 
 var request = require('request');
 
