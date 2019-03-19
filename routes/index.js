@@ -47,13 +47,19 @@ function cb(err, response, body){
 }
 
 function getWeather(city){
-    result = undefined;
-    var url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apikey}';
-    var req = request(url, cb);
-    while(result == undefined) {
-        getWeather(city)
+    request(url, function (error, response, body) {
+        console.log('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        body = JSON.parse(body);
+        console.log(body);
+        if (error && response.statusCode != 200) {
+            throw error;
+        }
+        console.log("test "+ body )
+        let country = (body.sys.country) ? body.sys.country : '';
+        let forecast = "For city " + city + ', country ' + country;
     }
-    return result;
+    return body;
 }
 
 /* GET home page. */
