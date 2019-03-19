@@ -66,9 +66,9 @@ function getWeather(city){
         console.log("test "+ result )
         let country = (body.sys.country) ? body.sys.country : '';
         let forecast = "For city " + city + ', country ' + country;
-        return result;
-    });
 
+    });
+    return result;
 }
 
 /* GET home page. */
