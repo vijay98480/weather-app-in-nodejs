@@ -81,7 +81,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/weather', function(req, res, next){
   let city = req.body.city;
-  url = url+city+"&"+appId+"&"+units;
+  url = "http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e9c5bf834390e3e42fdafb6b30b53ab5&units=metric";
     console.log("url "+url);
  request(url, function (error, response, body) {
 
