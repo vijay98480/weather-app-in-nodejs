@@ -3,8 +3,6 @@ var express = require('express');
 var router = express.Router();
 
 
-
-
 let url    = 'http://api.openweathermap.org/data/2.5/weather?q='
 let appId  = 'appid=e9c5bf834390e3e42fdafb6b30b53ab5';
 let units  = '&units=metric';
@@ -17,6 +15,7 @@ router.post('/webhook', function(req, res) {
     if(!req.body) return res.sendStatus(400)
     res.setHeader('Content-Type', 'application/json');
     var city = req.body.queryResult.parameters['geo-city'];
+    console.log(city);
     var w = getWeather(city);
     let response="";
     let responseObj={
