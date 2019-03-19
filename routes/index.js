@@ -17,6 +17,7 @@ router.post('/webhook', function(req, res) {
     var city = req.body.queryResult.parameters['geo-city'];
     console.log(city);
     var w = getWeather(city);
+    console.log("final "+ w);
     let response="";
     console.log("final "+ w);
     var json1 = JSON.stringify({
@@ -26,7 +27,7 @@ router.post('/webhook', function(req, res) {
     })
     let responseObj={
         "fulfillmentText": response,
-        "fulfillmentMessages":[{"text": {"text": [w]}}],
+        "fulfillmentMessages":[{"text": {"text": ["uuuuuu"]}}],
         "source":""
     }
     console.log("final2 "+ json1);
@@ -66,7 +67,7 @@ function getWeather(city){
         console.log("test "+ result )
         let country = (body.sys.country) ? body.sys.country : '';
         let forecast = "For city " + city + ', country ' + country;
-
+        return result;
     });
     return result;
 }
