@@ -1,8 +1,8 @@
 var express = require('express');
-var router = express.Router();
 var deasync = require('deasync');
-var cp = require('child_process');
-var exec = deasync(cp.exec);
+var router = express.Router();
+
+
 
 
 let url    = 'http://api.openweathermap.org/data/2.5/weather?q='
