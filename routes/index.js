@@ -38,7 +38,8 @@ function cb(err, response, body){
         result = ' '+Weather.message;
     }else
     {
-        result = 'Right now it is' + weather.main.temp+ 'degrees with' + weather.weather[0].description;
+        console.log(result);
+        result = 'Right now it is' + weather.main.temp + 'degrees with' + weather.weather[0].description;
     }
 
 }
