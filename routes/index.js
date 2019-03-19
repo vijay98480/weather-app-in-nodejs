@@ -1,4 +1,4 @@
-let express = require('express');
+var express = require('express');
 var router = express.Router();
 
 
@@ -13,8 +13,8 @@ router.post('/webhook', function(req, res) {
     console.log('record post');
     if(!req.body) return res.sendStatus(400)
     res.setHeader('Content-Type', 'application/json');
-    let city = req.body.queryResult.parameters['geo-city'];
-    let w = getWeather(city);
+    var city = req.body.queryResult.parameters['geo-city'];
+    var w = getWeather(city);
     let response="";
     let responseObj={
         "fulfillmentText": response,
@@ -24,15 +24,15 @@ router.post('/webhook', function(req, res) {
     return res.json(responseObj);
 
 });
-let result;
+var result;
 
-let apikey = 'e9c5bf834390e3e42fdafb6b30b53ab5';
+var apikey = 'e9c5bf834390e3e42fdafb6b30b53ab5';
 
 function cb(err, response, body){
     if(err){
         console.log('error:', error);
     }
-    let weather = Json.parse(body);
+    var weather = Json.parse(body);
     if(weather.message --- 'city not found'){
 
         result = ' '+Weather.message;
@@ -45,8 +45,8 @@ function cb(err, response, body){
 
 function getWeather(city){
     result = undefined;
-    let url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apikey}';
-    let req = request(url, cb);
+    var url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apikey}';
+    var req = request(url, cb);
     while(result == undefined) {
         require('deasync').runLoopOnce();
     }
