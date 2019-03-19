@@ -51,7 +51,7 @@ function getWeather(city){
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apikey}';
     var req = request(url, cb);
     while(result == undefined) {
-        require('deasync').runLoopOnce();
+        getWeather(city)
     }
     return result;
 }
