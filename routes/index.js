@@ -29,6 +29,7 @@ router.post('/webhook', function(req, res) {
         "fulfillmentMessages":[{"text": {"text": [w]}}],
         "source":""
     }
+    console.log("final2 "+ json1);
     return res.end(json1);
 
 });
