@@ -24,7 +24,7 @@ router.post('/webhook', function(req, res) {
         "fulfillmentMessages":[{"text": {"text": [w]}}],
         "source":""
     }
-    return res.JSON(responseObj);
+    return res.JSONCookie(responseObj);
 
 });
 var result;
