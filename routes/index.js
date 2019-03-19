@@ -1,5 +1,8 @@
 var express = require('express');
 var deasync = require('deasync');
+var cp = require('child_process');
+
+var exec = deasync(cp.exec);
 var router = express.Router();
 
 
@@ -52,7 +55,7 @@ function getWeather(city){
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apikey}';
     var req = request(url, cb);
     while(result == undefined) {
-        require('deasync').runLoopOnce();
+        deasync(req);
     }
     return result;
 }
