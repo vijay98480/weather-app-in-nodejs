@@ -21,7 +21,7 @@ router.post('/webhook', function(req, res) {
         "fulfillmentMessages":[{"text": {"text": [w]}}],
         "source":""
     }
-    return res.json(responseObj);
+    return res.JSON(responseObj);
 
 });
 var result;
@@ -32,7 +32,7 @@ function cb(err, response, body){
     if(err){
         console.log('error:', error);
     }
-    var weather = Json.parse(body);
+    var weather = JSON.parse(body);
     if(weather.message --- 'city not found'){
 
         result = ' '+Weather.message;
