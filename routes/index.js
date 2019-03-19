@@ -82,7 +82,7 @@ router.get('/', function(req, res, next) {
 router.post('/weather', function(req, res, next){
   let city = req.body.city;
   url = url+city+"&"+appId+"&"+units;
-
+    console.log("url "+url);
  request(url, function (error, response, body) {
 
       console.log('error:', error); // Print the error if one occurred
