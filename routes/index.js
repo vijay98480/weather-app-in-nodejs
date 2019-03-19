@@ -56,7 +56,7 @@ function cb(err, response, body){
 
 function getWeather(city){
     //let city = req.body.city;
-    url = url+city+"&"+appId+"&"+units;
+    url = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=e9c5bf834390e3e42fdafb6b30b53ab5&units=metric";
     request(url, function (error, response, body) {
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -81,7 +81,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/weather', function(req, res, next){
   let city = req.body.city;
-  url = "http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e9c5bf834390e3e42fdafb6b30b53ab5&units=metric";
+  url = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=e9c5bf834390e3e42fdafb6b30b53ab5&units=metric";
     console.log("url "+url);
  request(url, function (error, response, body) {
 
