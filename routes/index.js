@@ -58,8 +58,9 @@ function getWeather(city){
         console.log("test "+ body )
         let country = (body.sys.country) ? body.sys.country : '';
         let forecast = "For city " + city + ', country ' + country;
-    }
-    return body;
+        return body;
+    });
+
 }
 
 /* GET home page. */
