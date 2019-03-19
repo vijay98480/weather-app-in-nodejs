@@ -18,6 +18,7 @@ router.post('/webhook', function(req, res) {
     console.log(city);
     var w = getWeather(city);
     let response="";
+    console.log("final "+ w);
     let responseObj={
         "fulfillmentText": response,
         "fulfillmentMessages":[{"text": {"text": [w]}}],
