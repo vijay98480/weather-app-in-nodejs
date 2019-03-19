@@ -4,9 +4,54 @@ var router = express.Router();
 
 let url    = 'http://api.openweathermap.org/data/2.5/weather?q='
 let appId  = 'appid=e9c5bf834390e3e42fdafb6b30b53ab5';
-let units  = '&units=metric'; 
+let units  = '&units=metric';
+
 var request = require('request');
 
+
+router.post('/webhook', function(req, res) {
+    console.log('record post');
+    if(!req.body) return res.sendStatus(400)
+    res.setHeader('Content-Type', 'application/json');
+    var city = req.body.queryResult.parameter['geo-city'];
+    var w = getWeather(city);
+    let response="";
+    let responseObj={
+        "fulfillmentText": response,
+        "fulfillmentMessages":[{"text": {"text": [w]}}],
+        "source":""
+    }
+    return res.json(responseObj);
+
+});
+var result;
+
+var apikey = 'e9c5bf834390e3e42fdafb6b30b53ab5';
+
+function cb(err, response, body){
+    if(err){
+        console.log('error:', error);
+    }
+    var weather = Json.parse(body);
+    if(weather.message --- 'city not found'){
+
+        result = ' '+Weather.message;
+    }else
+    {
+        result = 'Right now it is' + weather.main.temp+ 'degrees with' + weather.weather[0].description;
+    }
+
+}
+
+function getWeather(city){
+    result = undefined;
+    var url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apikey}';
+    var req = request(url, cb);
+    while(result == undefined) {
+        require('deasync').runLoopOnce();
+    }
+    return result;
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
