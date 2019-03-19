@@ -16,6 +16,7 @@
     "request": "^2.88.0",
     "serve-favicon": "~2.4.5",
     "node-addon-api": "^1.6.0",
-    "bindings": "~1.2.1"
+    "bindings": "~1.2.1",
+    "deasync": "^0.1.14"
   }
 }
