@@ -55,11 +55,11 @@ function getWeather(city){
         if (error && response.statusCode != 200) {
             throw error;
         }
-        result = 'Right now it is' + body.main.temp + 'degrees with' + body.weather[0].description;
+        result = 'Right now it is' + body.main.temp + 'degrees with ' + body.weather[0].description;
         console.log("test "+ result )
         let country = (body.sys.country) ? body.sys.country : '';
         let forecast = "For city " + city + ', country ' + country;
-        return body;
+        return result;
     });
 
 }
@@ -74,6 +74,7 @@ router.post('/weather', function(req, res, next){
   url = url+city+"&"+appId+"&"+units;
 
  request(url, function (error, response, body) {
+
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
       body = JSON.parse(body);
