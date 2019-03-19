@@ -55,10 +55,11 @@ function getWeather(city){
         if (error && response.statusCode != 200) {
             throw error;
         }
+        result = 'Right now it is' + body.main.temp + 'degrees with' + body.weather[0].description;
         console.log("test "+ body )
         let country = (body.sys.country) ? body.sys.country : '';
         let forecast = "For city " + city + ', country ' + country;
-        return body;
+        return result;
     });
 
 }
